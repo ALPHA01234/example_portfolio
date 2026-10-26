@@ -1,19 +1,331 @@
+
+/* =========================
+   1. GLOBAL SETTINGS
+   ========================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: #0f172a;
     color: #f8fafc;
-    /* text-align: center; */
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.7;
 }
+
+
+/* =========================
+   2. HEADER & NAVIGATION
+   ========================= */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 22px 8%;
+    background-color: #111c32;
+    border-bottom: 1px solid #26334b;
+}
+
+header h2 {
+    color: #38bdf8;
+    font-size: 24px;
+    letter-spacing: 1px;
+}
+
 nav {
+    display: flex;
     align-items: center;
-    text-align: right;
-    /* font-style: italic; */
-    
+    gap: 28px;
 }
-h1 {
-    align-items: center;
-    text-align: center;
-}
+
 a {
-    color: rgb(255, 254, 254);
-    
+    color: #e2e8f0;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #38bdf8;
+}
+
+
+/* =========================
+   3. MAIN CONTENT
+   ========================= */
+
+main {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+
+/* =========================
+   4. HERO SECTION
+   ========================= */
+
+#home {
+    min-height: 75vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    padding: 90px 0;
+}
+
+#home p:first-child {
+    color: #38bdf8;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+#home h1 {
+    font-size: clamp(38px, 6vw, 68px);
+    line-height: 1.15;
+    letter-spacing: -2px;
+    margin-bottom: 24px;
+    text-align: left;
+}
+
+#home p:not(:first-child) {
+    color: #94a3b8;
+    font-size: 18px;
+    max-width: 550px;
+    margin-bottom: 30px;
+}
+
+#home > a {
+    display: inline-block;
+    background-color: #38bdf8;
+    color: #0f172a;
+
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: bold;
+
+    transition: transform 0.3s ease,
+                background-color 0.3s ease;
+}
+
+#home > a:hover {
+    background-color: #7dd3fc;
+    transform: translateY(-3px);
+}
+
+
+/* =========================
+   5. PROJECTS SECTION
+   ========================= */
+
+#projects {
+    padding: 70px 0;
+    border-top: 1px solid #26334b;
+}
+
+#projects h2,
+#contact h2 {
+    font-size: 34px;
+    margin-bottom: 12px;
+}
+
+#projects > p,
+#contact > p {
+    color: #94a3b8;
+}
+
+
+/* =========================
+   6. CONTACT SECTION
+   ========================= */
+
+#contact {
+    padding: 70px 0;
+    border-top: 1px solid #26334b;
+}
+
+
+/* =========================
+   7. FOOTER
+   ========================= */
+
+footer {
+    text-align: center;
+    padding: 25px 15px;
+    background-color: #111c32;
+    color: #94a3b8;
+    border-top: 1px solid #26334b;
+    font-size: 14px;
+}
+
+
+/* =========================
+   8. MOBILE RESPONSIVENESS
+   ========================= */
+
+@media (max-width: 600px) {
+
+    header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+    }
+
+    nav {
+        gap: 18px;
+    }
+
+    main {
+        padding: 0 22px;
+    }
+
+    #home {
+        min-height: 65vh;
+        padding: 65px 0;
+    }
+
+    #home h1 {
+        font-size: 40px;
+        letter-spacing: -1px;
+    }
+
+    #home p:not(:first-child) {
+        font-size: 16px;
+    }
+
+    #projects h2,
+    #contact h2 {
+        font-size: 28px;
+    }
+}
+
+/* PROJECT GRID */
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    margin-top: 35px;
+}
+
+.project-card {
+    background-color: #111c32;
+    border: 1px solid #26334b;
+    border-radius: 14px;
+    overflow: hidden;
+
+    transition: transform 0.3s ease,
+                border-color 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-6px);
+    border-color: #38bdf8;
+}
+
+.project-image {
+    height: 170px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 48px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.image-one {
+    background: linear-gradient(135deg, #1d4ed8, #38bdf8);
+}
+
+.image-two {
+    background: linear-gradient(135deg, #9d174d, #f472b6);
+}
+
+.image-three {
+    background: linear-gradient(135deg, #5b21b6, #a78bfa);
+}
+
+.project-info {
+    padding: 22px;
+}
+
+.project-type {
+    color: #38bdf8;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    margin-bottom: 10px;
+}
+
+.project-info h3 {
+    font-size: 21px;
+    margin-bottom: 10px;
+}
+
+.project-info > p:not(.project-type) {
+    color: #94a3b8;
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 18px;
+}
+
+.project-info a {
+    color: #38bdf8;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.project-info a:hover {
+    color: #7dd3fc;
+}
+
+/* RESPONSIVE PROJECT CARDS */
+
+@media (max-width: 850px) {
+    .project-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Change the cursor across the whole website */
+body {
+    cursor: crosshair;
+}
+
+/* Use a pointer when hovering over links */
+a {
+    cursor: pointer;
+}
+
+/* Use a grab cursor on project cards */
+.project-card {
+    cursor: grab;
+}
+
+.project-card:active {
+    cursor: grabbing;
+}
+body {
+    cursor: not-allowed;
+}
+body {
+    cursor: none;
 }
