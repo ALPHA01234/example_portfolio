@@ -1,0 +1,19 @@
+body {
+    background-color: #0f172a;
+    color: #f8fafc;
+    /* text-align: center; */
+}
+nav {
+    align-items: center;
+    text-align: right;
+    /* font-style: italic; */
+    
+}
+h1 {
+    align-items: center;
+    text-align: center;
+}
+a {
+    color: rgb(255, 254, 254);
+    
+}
